@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@getIndexPage');
+
+Route::get('/login', 'HomeController@getLoginPage');
+
+Route::get('/fb-login', 'HomeController@loginWithFacebook');
