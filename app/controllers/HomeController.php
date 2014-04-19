@@ -17,55 +17,58 @@ class HomeController extends BaseController {
 
 	public function getIndexPage()
 	{
-		return View::make('index-page');
+		return View::make('index-page', array('active_header' => 'issue-page'));
 	}
 
 	public function getLoginPage()
 	{
-		return View::make('login-page');
-	}
+		
+        // get data from input
+        $code = Input::get('code');
+        // get fb service
+        $fb = OAuth::consumer('Facebook');
 
-	/**
-	 * Login user with facebook
-	 *
-	 * @return void
-	 */
-	public function loginWithFacebook()
-	{
+        // check if code is valid
 
-    	// get data from input
-    	$code = Input::get('code');
-    	// get fb service
-    	$fb = OAuth::consumer('Facebook');
+        // if code is provided get user data and sign in
+        if (!empty($code)) {
 
-    	// check if code is valid
+            // This was a callback request from facebook, get the token
+            $token = $fb->requestAccessToken($code);
 
-    	// if code is provided get user data and sign in
-    	if (!empty($code)) {
+            // Send a request with it
+            $result = json_decode($fb->request('/me'), true);
 
-        	// This was a callback request from facebook, get the token
-        	$token = $fb->requestAccessToken($code);
+            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
+            echo $message. "<br/>";
 
-        	// Send a request with it
-        	$result = json_decode($fb->request('/me'), true);
+            // var_dump
+            // display whole array().
+            dd($result);
 
-        	$message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-        	echo $message. "<br/>";
+        } else {
+            
+            // get fb authorization
+            $url = $fb->getAuthorizationUri();
 
-        	//Var_dump
-        	//display whole array().
-        	dd($result);
+            // return to facebook login url
+            return Redirect::to((string)$url);
 
-    	} else {
-        	
-        	// get fb authorization
-        	$url = $fb->getAuthorizationUri();
+        }
 
-        	// return to facebook login url
-         	return Redirect::to( (string)$url );
-
-    	}
 
 	}
+
+    public function getIssuePage() {
+
+        return View::make('issue-page', array('active_header' => 'issue-page'));
+
+    }
+
+    public function getPoliticianPage() {
+        
+        return View::make('politicial-page', array('active_header' => 'politicial-page'));
+
+    }
 
 }

@@ -15,4 +15,6 @@ Route::get('/', 'HomeController@getIndexPage');
 
 Route::get('/login', 'HomeController@getLoginPage');
 
-Route::get('/fb-login', 'HomeController@loginWithFacebook');
+Route::get('/issue', 'HomeController@getIssuePage');
+
+Route::get('/politician', 'HomeController@getPoliticianPage');
