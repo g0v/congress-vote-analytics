@@ -39,12 +39,37 @@ class HomeController extends BaseController {
             // Send a request with it
             $result = json_decode($fb->request('/me'), true);
 
-            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-            echo $message. "<br/>";
+            $facebook_user_id   = $result['id'];
+            $user_name          = $result['name'];
+            $user_email         = $result['email'];
+            $user_avatar_url    = "http://graph.facebook.com/".$facebook_user_id."/picture?type=large";
+            $user_intro         = $result['bio'];
 
-            // var_dump
-            // display whole array().
-            dd($result);
+            $user_obj = User::where('email', '=', $user_email)->first();
+
+            if (empty($user_obj)) {
+                
+                // create user
+                $user_obj               = new User;
+                $user_obj->name         = $user_name;
+                $user_obj->email        = $user_email;
+                $user_obj->avatar_url   = $user_avatar_url;
+                $user_obj->intro        = $user_intro;
+                $user_obj->save();
+
+                $user_id = $user_obj->id;
+
+            }
+
+            if (Auth::check())
+            {
+                // The user is logged in...
+            } else {
+
+            }
+
+            return Redirect::to('/');
+
 
         } else {
             
