@@ -1,3 +1,3 @@
 <div class="footer">
-    <p>© Company 2014 test</p>
+    <p>© Company 2014</p>
 </div>
