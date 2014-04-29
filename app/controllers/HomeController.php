@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 
 	public function getLoginPage()
 	{
-		
+
         // get data from input
         $code = Input::get('code');
         // get fb service
@@ -48,7 +48,7 @@ class HomeController extends BaseController {
             $user_obj = User::where('email', '=', $user_email)->first();
 
             if (empty($user_obj)) {
-                
+
                 // create user
                 $user_obj               = new User;
                 $user_obj->name         = $user_name;
@@ -72,7 +72,7 @@ class HomeController extends BaseController {
 
 
         } else {
-            
+
             // get fb authorization
             $url = $fb->getAuthorizationUri();
 
@@ -91,7 +91,7 @@ class HomeController extends BaseController {
     }
 
     public function getPoliticianPage() {
-        
+
         return View::make('politicial-page', array('active_header' => 'politicial-page'));
 
     }
