@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $issue_page_active = '';
 $politicial_page_active = '';
@@ -53,11 +53,38 @@ case 'politicial-page':
                 </button>
             </form>
             <ul class="nav navbar-nav navbar-right">
+                <?php
+                if (Auth::check()) {
+
+                    $login_user_obj = Auth::user();
+
+                ?>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i><img src="<?php echo $login_user_obj->avatar_url; ?>" style="width: 16px;"></i>
+                        <?php echo $login_user_obj->name; ?> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">
+                                個人資料
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/logout">
+                                登出
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php } else { ?>
                 <li>
                     <a href="/login">
                         登入
                     </a>
                 </li>
+                <?php } ?>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

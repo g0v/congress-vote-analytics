@@ -59,14 +59,14 @@ class HomeController extends BaseController {
 
                 $user_id = $user_obj->id;
 
-            }
-
-            if (Auth::check())
-            {
-                // The user is logged in...
-            } else {
+                $user_facebook_account_obj = new UserFacebookAccount;
+                $user_facebook_account_obj->facebook_id = $facebook_user_id;
+                $user_facebook_account_obj->user_id = $user_id;
+                $user_facebook_account_obj->save();
 
             }
+
+            Auth::login($user_obj);
 
             return Redirect::to('/');
 
@@ -83,6 +83,14 @@ class HomeController extends BaseController {
 
 
 	}
+
+    public function getLogoutPage() {
+
+        Auth::logout();
+
+        return Redirect::to('/');
+
+    }
 
     public function getIssuePage() {
 
