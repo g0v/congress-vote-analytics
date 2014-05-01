@@ -13,6 +13,10 @@ case 'politicial-page':
     $politicial_page_active = 'active';
     break;
 
+case 'no-active':
+default:
+    break;
+
 }
 
 ?>
@@ -66,7 +70,7 @@ case 'politicial-page':
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">
+                            <a href="/me/profile">
                                 個人資料
                             </a>
                         </li>

@@ -20,3 +20,5 @@ Route::get('/logout', 'HomeController@getLogoutPage');
 Route::get('/issue', 'HomeController@getIssuePage');
 
 Route::get('/politician', 'HomeController@getPoliticianPage');
+
+Route::get('/me/profile', 'MeController@getMeProfilePage');
