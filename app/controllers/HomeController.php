@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function getIndexPage()
 	{
-		return View::make('index-page', array('active_header' => 'issue-page'));
+		return View::make('index-page', array('active_header' => 'no-active'));
 	}
 
 	public function getLoginPage()
