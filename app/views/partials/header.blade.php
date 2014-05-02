@@ -68,14 +68,14 @@ default:
                     </a>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
+            <!--<form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="輸入議題或立委關鍵字">
                 </div>
                 <button type="submit" class="btn btn-default">
                     搜尋
                 </button>
-            </form>
+            </form>-->
             <ul class="nav navbar-nav navbar-right">
                 <?php
                 if (Auth::check()) {
