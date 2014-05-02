@@ -8,3 +8,15 @@
     color: #777;
     border-top: 1px solid #e5e5e5;
 }
+
+#system-message {
+    position: fixed;
+    z-index: 1051;
+    top: 100px;
+    right: 25px;
+    background: #428bca;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: none;
+}

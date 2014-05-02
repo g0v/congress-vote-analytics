@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function getIndexPage()
 	{
-		return View::make('index-page', array('active_header' => 'issue-page'));
+		return View::make('index-page', array('active_header' => 'no-active'));
 	}
 
 	public function getLoginPage()
@@ -59,14 +59,14 @@ class HomeController extends BaseController {
 
                 $user_id = $user_obj->id;
 
-            }
-
-            if (Auth::check())
-            {
-                // The user is logged in...
-            } else {
+                $user_facebook_account_obj = new UserFacebookAccount;
+                $user_facebook_account_obj->facebook_id = $facebook_user_id;
+                $user_facebook_account_obj->user_id = $user_id;
+                $user_facebook_account_obj->save();
 
             }
+
+            Auth::login($user_obj);
 
             return Redirect::to('/');
 
@@ -84,6 +84,14 @@ class HomeController extends BaseController {
 
 	}
 
+    public function getLogoutPage() {
+
+        Auth::logout();
+
+        return Redirect::to('/');
+
+    }
+
     public function getIssuePage() {
 
         return View::make('issue-page', array('active_header' => 'issue-page'));
@@ -92,7 +100,25 @@ class HomeController extends BaseController {
 
     public function getPoliticianPage() {
 
-        return View::make('politicial-page', array('active_header' => 'politicial-page'));
+        return View::make('politician-page', array('active_header' => 'politician-page'));
+
+    }
+
+    public function getNewsPage() {
+
+        return View::make('news-page', array('active_header' => 'news-page'));
+
+    }
+
+    public function getDistrictPage() {
+
+        return View::make('district-page', array('active_header' => 'district-page'));
+
+    }
+
+    public function getLoginForm() {
+
+        return View::make('modal.login-form');
 
     }
 
