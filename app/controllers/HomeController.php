@@ -100,7 +100,19 @@ class HomeController extends BaseController {
 
     public function getPoliticianPage() {
 
-        return View::make('politicial-page', array('active_header' => 'politicial-page'));
+        return View::make('politician-page', array('active_header' => 'politician-page'));
+
+    }
+
+    public function getNewsPage() {
+
+        return View::make('news-page', array('active_header' => 'news-page'));
+
+    }
+
+    public function getLoginForm() {
+
+        return View::make('modal.login-form');
 
     }
 

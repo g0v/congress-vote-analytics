@@ -17,8 +17,12 @@ Route::get('/login', 'HomeController@getLoginPage');
 
 Route::get('/logout', 'HomeController@getLogoutPage');
 
+Route::get('/get-login-form', 'HomeController@getLoginForm');
+
 Route::get('/issue', 'HomeController@getIssuePage');
 
 Route::get('/politician', 'HomeController@getPoliticianPage');
+
+Route::get('/news', 'HomeController@getNewsPage');
 
 Route::get('/me/profile', 'MeController@getMeProfilePage');

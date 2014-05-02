@@ -1,5 +1,17 @@
 @extends('layout')
 
 @section('content')
-    <h1>Me Edit Page</h1>
+    <section>
+        <?php
+        if (Auth::check()) {
+        ?>
+
+        <?php
+        } else {
+
+            echo View::make('partials.login-link-alert');
+
+        }
+        ?>
+    </section>
 @stop

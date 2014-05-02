@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <section class="issue-manage-block">
+    <section class="news-manage-block">
         <?php
         if (Auth::check()) {
         ?>
         <div class="well">
             <button type="button" class="btn btn-primary">
-                新增議題
+                新增新聞
             </button>
         </div>
         <?php
@@ -18,7 +18,7 @@
         }
         ?>
     </section>
-    <section class="issue-list-block">
+    <section class="news-list-block">
 
     </section>
 @stop

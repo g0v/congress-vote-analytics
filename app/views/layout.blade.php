@@ -9,6 +9,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    {{ HTML::script('js/va.js'); }}
 </head>
 <body>
     <?php echo View::make('partials.header', array('active_header' => $active_header)); ?>
@@ -17,6 +18,10 @@
             @yield('content')
         </div>
         <?php echo View::make('partials.footer') ?>
+    </div>
+    <div id="system-message">
+    </div>
+    <div id="modal-block" class="modal fade" role="dialog" aria-hidden="true">
     </div>
 </body>
 </html>

@@ -1,7 +1,8 @@
 <?php
 
 $issue_page_active = '';
-$politicial_page_active = '';
+$politician_page_active = '';
+$news_page_active = '';
 
 switch ($active_header) {
 
@@ -9,8 +10,12 @@ case 'issue-page':
     $issue_page_active = 'active';
     break;
 
-case 'politicial-page':
-    $politicial_page_active = 'active';
+case 'politician-page':
+    $politician_page_active = 'active';
+    break;
+
+case 'news-page':
+    $news_page_active = 'active';
     break;
 
 case 'no-active':
@@ -42,9 +47,14 @@ default:
                         議題列表
                     </a>
                 </li>
-                <li class="<?php echo $politicial_page_active; ?>">
+                <li class="<?php echo $politician_page_active; ?>">
                     <a href="/politician">
                         立委列表
+                    </a>
+                </li>
+                <li class="<?php echo $news_page_active; ?>">
+                    <a href="/news">
+                        新聞列表
                     </a>
                 </li>
             </ul>
@@ -84,7 +94,7 @@ default:
                 </li>
                 <?php } else { ?>
                 <li>
-                    <a href="/login">
+                    <a class="login-link" href="#">
                         登入
                     </a>
                 </li>
