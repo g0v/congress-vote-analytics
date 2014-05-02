@@ -41,9 +41,45 @@ class DistrictGeneratorCommand extends Command {
 	{
 		$json_data = file_get_contents('https://raw.githubusercontent.com/myang-git/taiwan-electoral-data/master/electoral-districts.json');
 		$json_data_array = json_decode($json_data, true);
-		var_dump($json_data_array);
 
-		//DB::statement('ALTER TABLE user_facebook_accounts MODIFY COLUMN user_id int unsigned');
+		foreach ($json_data_array as $level_1_key=>$level_1_data) {
+
+			foreach ($level_1_data as $level_2_key=>$level_2_data) {
+
+				$district_title = $level_1_key.$level_2_key;
+				$district_description = '';
+
+				foreach ($level_2_data as $level_3_key=>$level_3_data) {
+
+					$district_description = $district_description.$level_3_key.'/';
+
+				}
+
+				$district_description = substr($district_description, 0, -1);
+
+				if (!empty($district_description)) {
+
+					echo "title: ".$district_title." \n";
+					echo "description: ".$district_description." \n";
+
+					$date = new \DateTime;
+
+					/*DB::table('districts')->insert(
+   		 				array(
+   		 					'title' => $district_title,
+   		 					'description' => $district_description,
+   		 					'order' => 1,
+   		 					'created_at' => $date,
+							'updated_at' => $date
+   		 				)
+					);*/
+
+				}
+
+			}
+
+		}
+
 
 	}
 

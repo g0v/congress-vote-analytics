@@ -110,6 +110,12 @@ class HomeController extends BaseController {
 
     }
 
+    public function getDistrictPage() {
+
+        return View::make('district-page', array('active_header' => 'district-page'));
+
+    }
+
     public function getLoginForm() {
 
         return View::make('modal.login-form');

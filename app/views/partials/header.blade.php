@@ -3,6 +3,7 @@
 $issue_page_active = '';
 $politician_page_active = '';
 $news_page_active = '';
+$district_page_active = '';
 
 switch ($active_header) {
 
@@ -16,6 +17,10 @@ case 'politician-page':
 
 case 'news-page':
     $news_page_active = 'active';
+    break;
+
+case 'district-page':
+    $district_page_active = 'active';
     break;
 
 case 'no-active':
@@ -55,6 +60,11 @@ default:
                 <li class="<?php echo $news_page_active; ?>">
                     <a href="/news">
                         新聞列表
+                    </a>
+                </li>
+                <li class="<?php echo $district_page_active; ?>">
+                    <a href="/district">
+                        選區列表
                     </a>
                 </li>
             </ul>
