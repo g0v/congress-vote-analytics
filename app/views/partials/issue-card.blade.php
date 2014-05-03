@@ -10,6 +10,7 @@
         </h3>
         <p class="list-group-item-text margin-top-3">
             <div class="row">
+                <h4>大家對此議題的平均評分</h4>
                 <div class="progress">
                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                         <span class="sr-only">80%</span>
