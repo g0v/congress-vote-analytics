@@ -29,29 +29,16 @@
                 if (Auth::check()) {
                 ?>
                 <div>
-                    <h4>您對此議題的評分</h4>
+                    <h4>您對此議題的評分（正分為贊成，負分為反對）</h4>
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label for="icon-input" class="col-sm-2 control-label">
-                                贊成分數
+                                評分
                             </label>
                             <div class="col-sm-10">
-                                <input style="width: 100%;" id="pro-issue<?php echo $issue_obj->id ?>-rank" data-slider-id='greenSlider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
+                                <input style="width: 100%;" id="pro-issue<?php echo $issue_obj->id ?>-rank" data-slider-id='glodSlider' type="text" data-slider-min="-100" data-slider-max="100" data-slider-step="1" data-slider-value="0"/>
                                 <script>
                                 $("#pro-issue<?php echo $issue_obj->id ?>-rank").slider({
-                                    tooltip: 'always'
-                                });
-                                </script>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="icon-input" class="col-sm-2 control-label">
-                                反對分數
-                            </label>
-                            <div class="col-sm-10">
-                                <input style="width: 100%;" id="con-issue<?php echo $issue_obj->id ?>-rank" data-slider-id='redSlider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
-                                <script>
-                                $("#con-issue<?php echo $issue_obj->id ?>-rank").slider({
                                     tooltip: 'always'
                                 });
                                 </script>
@@ -71,7 +58,6 @@
         </p>
     </div>
     <div class="col-md-3">
-        <h4>相關政治人物</h4>
         <h4>相關新聞</h4>
     </div>
 </a>

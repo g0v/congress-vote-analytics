@@ -94,6 +94,12 @@ a.list-group-item.active small {
 #greenSlider .slider-selection, #greenSlider .slider-handle {
     background: green;
 }
+#blueSlider .slider-selection, #blueSlider .slider-handle {
+    background: blue;
+}
+#glodSlider .slider-selection, #glodSlider .slider-handle {
+    background: Gold;
+}
 
 .margin-top-1 {
   margin-top: 5px;
