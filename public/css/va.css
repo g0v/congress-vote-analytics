@@ -1,3 +1,7 @@
+body {
+    padding-top: 70px;
+}
+
 #content {
     min-height: 600px;
 }
@@ -19,6 +23,10 @@
     padding: 8px 15px;
     border-radius: 4px;
     display: none;
+}
+
+.navbar-brand {
+    padding: 0px 15px;
 }
 
 .flex-container {

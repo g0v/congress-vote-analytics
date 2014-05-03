@@ -2,6 +2,12 @@
 
 class NewsController extends \BaseController {
 
+    public function getNewsPage() {
+
+        return View::make('news-page', array('active_header' => 'news-page'));
+
+    }
+
 	public function addNews() {
 
 		if (Auth::check()) {

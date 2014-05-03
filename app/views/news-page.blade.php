@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <section class="news-manage-block">
+    <section class="news-content-block">
         <?php
         if (Auth::check()) {
         ?>
@@ -45,6 +45,7 @@
             <?php echo $news_list->links(); ?>
         </div>
         <script>
+        $(document).ready(function() {
 
             function getAddNewsFormValidate(formData, jqForm, options) {
 
@@ -87,6 +88,7 @@
                 target:         '#news-form-block'
             });
 
+        });
         </script>
         <?php
         } else {
@@ -95,8 +97,5 @@
 
         }
         ?>
-    </section>
-    <section class="news-list-block">
-
     </section>
 @stop

@@ -30,7 +30,7 @@ default:
 }
 
 ?>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -41,6 +41,7 @@ default:
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
+                <i><img src="/image/g0v-horizontal-transparent-darkbackground-m.png" /></i>
                 選票成份分析系統
             </a>
         </div>
