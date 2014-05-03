@@ -51,24 +51,39 @@ class NewsController extends \BaseController {
 
             $news_url_input = $input['news_url_input'];
 
-            $reader = new Opengraph\Reader();
-			$reader->parse(file_get_contents($news_url_input));
-			$og_data = $reader->getArrayCopy();
+            $news_obj = DB::table('news')->where('url', $news_url_input)->first();
 
-			$og_title 		= $og_data['og:title'];
-			$og_description = $og_data['og:description'];
-			$og_image 		= $og_data['og:image'][0]['og:image:url'];
-			$og_url 		= $og_data['og:url'];
+            if (!empty($news_obj)) {
 
-			return View::make(
-							'form.add-news-form',
-							array(
-								'og_title' 			=> $og_title,
-								'og_description' 	=> $og_description,
-								'og_image' 			=> $og_image,
-								'og_url' 			=> $og_url,
-							)
-						);
+            	$type = 'news_url_exist';
+	            $parameter = array("none"=>"none");
+	            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+	            $error_messanger->printErrorAlertBlock();
+	            unset($error_messanger);
+	            return;
+
+            } else {
+
+            	$reader = new Opengraph\Reader();
+				$reader->parse(file_get_contents($news_url_input));
+				$og_data = $reader->getArrayCopy();
+
+				$og_title 		= $og_data['og:title'];
+				$og_description = $og_data['og:description'];
+				$og_image 		= $og_data['og:image'][0]['og:image:url'];
+				$og_url 		= $og_data['og:url'];
+
+				return View::make(
+								'form.add-news-form',
+								array(
+									'og_title' 			=> $og_title,
+									'og_description' 	=> $og_description,
+									'og_image' 			=> $og_image,
+									'og_url' 			=> $og_url,
+								)
+							);
+
+            }
 
         } else {
 

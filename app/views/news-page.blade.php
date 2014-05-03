@@ -24,9 +24,10 @@
         <h2>新聞列表</h2>
         <div class="flex-container margin-bottom-3">
             <?php
+
             $news_list = DB::table('news')
                                 ->orderBy('id', 'desc')
-                                ->get();
+                                ->paginate(8);
 
             foreach ($news_list as $news_obj) {
 
@@ -39,6 +40,9 @@
             }
 
             ?>
+        </div>
+        <div class="text-center">
+            <?php echo $news_list->links(); ?>
         </div>
         <script>
 
