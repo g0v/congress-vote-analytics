@@ -13,7 +13,7 @@ class IssueController extends \BaseController {
         return View::make('modal.add-issue-form');
     }
 
-    public function addPolitician()
+    public function addIssue()
     {
 
         if (!Auth::check()) {
@@ -31,19 +31,15 @@ class IssueController extends \BaseController {
 
         $input = Input::all();
 
-        $name_input     = $input['name_input'];
+        $title_input     = $input['title_input'];
         $icon_input     = $input['icon_input'];
-        $intro_input    = $input['intro_input'];
-        $district_input = $input['district_input'];
 
         // create news
-        $politician_obj                 = new Politician;
-        $politician_obj->name           = $name_input;
-        $politician_obj->intro          = $intro_input;
-        $politician_obj->icon           = $icon_input;
-        $politician_obj->district_id    = $district_input;
-        $politician_obj->creator_id     = $login_user_obj->id;
-        $politician_obj->save();
+        $issue_obj                 = new Issue;
+        $issue_obj->title          = $title_input;
+        $issue_obj->icon           = $icon_input;
+        $issue_obj->creator_id     = $login_user_obj->id;
+        $issue_obj->save();
 
         $type = 'success';
         $parameter = array("none"=>"none");

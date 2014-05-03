@@ -61,6 +61,40 @@ body {
     width: 100%;
 }
 
+a.list-group-item {
+    height:auto;
+    min-height:330px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+
+.progress {
+    position: relative;
+    height: 25px;
+}
+.progress > .progress-type {
+    position: absolute;
+    left: 0px;
+    font-weight: 800;
+    padding: 3px 30px 2px 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(25, 25, 25, 0.2);
+}
+.progress > .progress-completed {
+    position: absolute;
+    right: 0px;
+    font-weight: 800;
+    padding: 3px 10px 2px;
+}
+
+#redSlider .slider-selection, #redSlider .slider-handle {
+    background: red;
+}
+#greenSlider .slider-selection, #greenSlider .slider-handle {
+    background: green;
+}
+
 .margin-top-1 {
   margin-top: 5px;
 }

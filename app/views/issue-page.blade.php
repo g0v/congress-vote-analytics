@@ -42,7 +42,30 @@
         }
         ?>
     </section>
-    <section class="issue-list-block">
+    <section class="issue-list-block row">
+        <div class="well">
+            <div class="list-group">
+                <?php
 
+                $issue_list = DB::table('issues')
+                                    ->orderBy('id', 'desc')
+                                    ->paginate(4);
+
+                foreach ($issue_list as $issue_obj) {
+
+                    echo View::make(
+                                'partials.issue-card',
+                                array(
+                                    'issue_obj' => $issue_obj
+                                )
+                            );
+                }
+
+                ?>
+            </div>
+        </div>
+        <div class="text-center">
+            <?php echo $issue_list->links(); ?>
+        </div>
     </section>
 @stop
