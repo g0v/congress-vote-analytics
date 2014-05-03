@@ -92,33 +92,15 @@ class HomeController extends BaseController {
 
     }
 
-    public function getIssuePage() {
+    public function getLoginForm() {
 
-        return View::make('issue-page', array('active_header' => 'issue-page'));
-
-    }
-
-    public function getPoliticianPage() {
-
-        return View::make('politician-page', array('active_header' => 'politician-page'));
-
-    }
-
-    public function getNewsPage() {
-
-        return View::make('news-page', array('active_header' => 'news-page'));
+        return View::make('modal.login-form');
 
     }
 
     public function getDistrictPage() {
 
         return View::make('district-page', array('active_header' => 'district-page'));
-
-    }
-
-    public function getLoginForm() {
-
-        return View::make('modal.login-form');
 
     }
 

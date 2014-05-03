@@ -19,11 +19,23 @@ Route::get('/logout', 'HomeController@getLogoutPage');
 
 Route::get('/get-login-form', 'HomeController@getLoginForm');
 
-Route::get('/issue', 'HomeController@getIssuePage');
+Route::get('/issue', 'IssueController@getIssuePage');
 
-Route::get('/politician', 'HomeController@getPoliticianPage');
+Route::get('/issue/get-add-issue-form', 'IssueController@getAddIssueForm');
 
-Route::get('/news', 'HomeController@getNewsPage');
+Route::post('/issue/add-issue', 'IssueController@addIssue');
+
+Route::get('/politician', 'PoliticianController@getPoliticianPage');
+
+Route::get('/politician/get-add-politician-form', 'PoliticianController@getAddPoliticianForm');
+
+Route::post('/politician/add-politician', 'PoliticianController@addPolitician');
+
+Route::get('/news', 'NewsController@getNewsPage');
+
+Route::get('/news/get-add-news-form', 'NewsController@getAddNewsForm');
+
+Route::post('/news/add-news', 'NewsController@addNews');
 
 Route::get('/district', 'HomeController@getDistrictPage');
 

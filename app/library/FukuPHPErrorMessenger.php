@@ -116,6 +116,15 @@ class FukuPHPErrorMessenger
 
             break;
 
+        case 'news_url_exist':
+
+            $this->code = "2";
+            $this->message = $this->type." - News Url Exist!";
+            $this->readable_title = "新聞連結已存在";
+            $this->readable_description = "此新聞已存在資料庫，請新增其他新聞，謝謝！";
+
+            break;
+
         case 'success':
 
             $this->code = "0";
@@ -220,6 +229,19 @@ class FukuPHPErrorMessenger
         echo $error_title .' - '.$error_description;
 
     }// end function printErrorJSON
+
+    public function printErrorAlertBlock()
+    {
+
+        $error_title = $this->readable_title;
+        $error_description = $this->readable_description;
+        ?>
+        <div class="alert alert-warning alert-dismissable">
+            <?php echo $error_description; ?>
+        </div>
+        <?php
+
+    }
 
     /**
      * Method setReturnData
