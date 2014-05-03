@@ -25,6 +25,10 @@ Route::get('/politician', 'HomeController@getPoliticianPage');
 
 Route::get('/news', 'HomeController@getNewsPage');
 
+Route::get('/news/get-add-news-form', 'NewsController@getAddNewsForm');
+
+Route::post('/news/add-news', 'NewsController@addNews');
+
 Route::get('/district', 'HomeController@getDistrictPage');
 
 Route::get('/me/profile', 'MeController@getMeProfilePage');
