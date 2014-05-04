@@ -57,6 +57,8 @@ Route::post('/me/update-profile', 'MeController@postUpdateProfile');
 
 Route::post('/me/update-issue-score', 'MeController@postUpdateIssueScore');
 
+Route::post('/me/update-politician-issue-score', 'MeController@postUpdatePoliticianIssueScore');
+
 Route::get('/api/search/issue', 'APIController@searchIssue');
 
 Route::get('/api/search/politician', 'APIController@searchPolitician');

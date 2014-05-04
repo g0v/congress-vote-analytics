@@ -26,6 +26,31 @@
                             );
 
             ?>
+            <section class="issue-list-block row margin-top-3">
+                <div class="list-group">
+                    <?php
+
+                    $issue_list = DB::table('issues')
+                                        ->orderBy('id', 'desc')
+                                        ->paginate(4);
+
+                    foreach ($issue_list as $issue_obj) {
+
+                        echo View::make(
+                                    'partials.politician-issue-card',
+                                    array(
+                                        'issue_obj' => $issue_obj,
+                                        'politician_obj' => $politician_obj
+                                    )
+                                );
+                    }
+
+                    ?>
+                </div>
+                <div class="text-center">
+                    <?php echo $issue_list->links(); ?>
+                </div>
+            </section>
         </div>
     </section>
 @stop
