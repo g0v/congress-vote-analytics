@@ -7,6 +7,11 @@ class MeController extends \BaseController {
 		return View::make('me.profile-page', array('active_header' => 'no-active'));
 	}
 
+    public function getMeIssueScorePage()
+    {
+        return View::make('me.issue-score-page', array('active_header' => 'no-active'));
+    }
+
     public function postUpdateProfile()
     {
 
