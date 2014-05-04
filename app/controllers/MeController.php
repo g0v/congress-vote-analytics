@@ -7,6 +7,11 @@ class MeController extends \BaseController {
 		return View::make('me.profile-page', array('active_header' => 'no-active'));
 	}
 
+    public function getMeIssueScorePage()
+    {
+        return View::make('me.issue-score-page', array('active_header' => 'no-active'));
+    }
+
     public function postUpdateProfile()
     {
 
@@ -43,6 +48,117 @@ class MeController extends \BaseController {
             unset($error_messanger);
             return;
         }
+
+    }
+
+    public function postUpdateIssueScore()
+    {
+
+        if (!Auth::check()) {
+
+            $type = 'unknow_error';
+            $parameter = array("none"=>"none");
+            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+            $error_messanger->printErrorJSON();
+            unset($error_messanger);
+            return;
+
+        }
+
+        $login_user_obj = Auth::user();
+
+        $input = Input::all();
+
+        $issue_id       = $input['issue_id'];
+        $issue_score    = $input['issue_score'];
+
+        $user_issue_score_record_obj = DB::table('user_issue_score_records')
+                                            ->where('user_id', $login_user_obj->id)
+                                            ->where('issue_id', $issue_id)
+                                            ->first();
+
+        if (empty($user_issue_score_record_obj)) {
+
+            // create
+            $user_issue_score_record_obj = new UserIssueScoreRecord;
+            $user_issue_score_record_obj->user_id   = $login_user_obj->id;
+            $user_issue_score_record_obj->issue_id  = $issue_id;
+            $user_issue_score_record_obj->score     = $issue_score;
+            $user_issue_score_record_obj->save();
+
+        } else {
+
+            // update
+            $user_issue_score_record_obj = UserIssueScoreRecord::find($user_issue_score_record_obj->id);
+            $user_issue_score_record_obj->user_id   = $login_user_obj->id;
+            $user_issue_score_record_obj->issue_id  = $issue_id;
+            $user_issue_score_record_obj->score     = $issue_score;
+            $user_issue_score_record_obj->save();
+        }
+
+        $type = 'success';
+        $parameter = array("none"=>"none");
+        $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+        $error_messanger->printErrorJSON();
+        unset($error_messanger);
+        return;
+
+    }
+
+    public function postUpdatePoliticianIssueScore() {
+
+        if (!Auth::check()) {
+
+            $type = 'unknow_error';
+            $parameter = array("none"=>"none");
+            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+            $error_messanger->printErrorJSON();
+            unset($error_messanger);
+            return;
+
+        }
+
+        $login_user_obj = Auth::user();
+
+        $input = Input::all();
+
+        $issue_id               = $input['issue_id'];
+        $politician_id          = $input['politician_id'];
+        $politician_issue_score = $input['politician_issue_score'];
+
+        $politician_issue_score_record_obj = DB::table('politician_issue_score_records')
+                                                                ->where('politician_id', '=', $politician_id)
+                                                                ->where('issue_id', '=', $issue_id)
+                                                                ->where('score_by_user_id', '=', $login_user_obj->id)
+                                                                ->first();
+
+        if (empty($politician_issue_score_record_obj)) {
+
+            // create
+            $politician_issue_score_record_obj = new PoliticianIssueScoreRecord;
+            $politician_issue_score_record_obj->score_by_user_id    = $login_user_obj->id;
+            $politician_issue_score_record_obj->issue_id            = $issue_id;
+            $politician_issue_score_record_obj->politician_id       = $politician_id;
+            $politician_issue_score_record_obj->score               = $politician_issue_score;
+            $politician_issue_score_record_obj->save();
+
+        } else {
+
+            // update
+            $politician_issue_score_record_obj = PoliticianIssueScoreRecord::find($politician_issue_score_record_obj->id);
+            $politician_issue_score_record_obj->score_by_user_id    = $login_user_obj->id;
+            $politician_issue_score_record_obj->issue_id            = $issue_id;
+            $politician_issue_score_record_obj->politician_id       = $politician_id;
+            $politician_issue_score_record_obj->score               = $politician_issue_score;
+            $politician_issue_score_record_obj->save();
+        }
+
+        $type = 'success';
+        $parameter = array("none"=>"none");
+        $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+        $error_messanger->printErrorJSON();
+        unset($error_messanger);
+        return;
 
     }
 

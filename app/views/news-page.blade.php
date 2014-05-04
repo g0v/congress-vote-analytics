@@ -18,9 +18,62 @@
                     </div>
                 </div>
             </form>
+            <script>
+            $(document).ready(function() {
+
+                function getAddNewsFormValidate(formData, jqForm, options) {
+
+                    var is_validated = true;
+
+                    if (!$('#news-url-input').val()) {
+                        $('#news-url-input').parent().addClass('has-error');
+                        is_validated = false;
+                    } else {
+                        $('#news-url-input').parent().removeClass('has-error');
+                    }
+
+                    if (is_validated) {
+
+                        $('#get-add-news-form-submit').attr("disabled", "disabled");
+                        $('#system-message').html('處理中...');
+                        $('#system-message').show();
+
+                    }
+
+                    return is_validated;
+
+                }
+
+                function getAddNewsFormResponse(responseText, statusText, xhr, $form)  {
+
+                    $('#get-add-news-form-submit').removeAttr("disabled");
+                    $('#system-message').html('成功');
+                    $('#system-message').fadeOut();
+
+
+                }
+
+
+                $('#get-add-news-form').ajaxForm({
+                    beforeSubmit:   getAddNewsFormValidate,
+                    success:        getAddNewsFormResponse,
+                    url:            '/news/get-add-news-form',
+                    type:           'get',
+                    target:         '#news-form-block'
+                });
+
+            });
+            </script>
         </div>
         <div id="news-form-block">
         </div>
+        <?php
+        } else {
+
+            echo View::make('partials.login-link-alert');
+
+        }
+        ?>
         <h2>新聞列表</h2>
         <div class="flex-container margin-bottom-3">
             <?php
@@ -44,58 +97,5 @@
         <div class="text-center">
             <?php echo $news_list->links(); ?>
         </div>
-        <script>
-        $(document).ready(function() {
-
-            function getAddNewsFormValidate(formData, jqForm, options) {
-
-                var is_validated = true;
-
-                if (!$('#news-url-input').val()) {
-                    $('#news-url-input').parent().addClass('has-error');
-                    is_validated = false;
-                } else {
-                    $('#news-url-input').parent().removeClass('has-error');
-                }
-
-                if (is_validated) {
-
-                    $('#get-add-news-form-submit').attr("disabled", "disabled");
-                    $('#system-message').html('處理中...');
-                    $('#system-message').show();
-
-                }
-
-                return is_validated;
-
-            }
-
-            function getAddNewsFormResponse(responseText, statusText, xhr, $form)  {
-
-                $('#get-add-news-form-submit').removeAttr("disabled");
-                $('#system-message').html('成功');
-                $('#system-message').fadeOut();
-
-
-            }
-
-
-            $('#get-add-news-form').ajaxForm({
-                beforeSubmit:   getAddNewsFormValidate,
-                success:        getAddNewsFormResponse,
-                url:            '/news/get-add-news-form',
-                type:           'get',
-                target:         '#news-form-block'
-            });
-
-        });
-        </script>
-        <?php
-        } else {
-
-            echo View::make('partials.login-link-alert');
-
-        }
-        ?>
     </section>
 @stop

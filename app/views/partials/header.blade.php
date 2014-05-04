@@ -95,6 +95,11 @@ default:
                                 個人資料
                             </a>
                         </li>
+                        <li>
+                            <a href="/me/issue-score">
+                                議題表態評分記錄
+                            </a>
+                        </li>
                         <li class="divider"></li>
                         <li>
                             <a href="/logout">

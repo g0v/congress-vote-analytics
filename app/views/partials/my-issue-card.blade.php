@@ -1,16 +1,11 @@
-<?php
-$issue_obj = Issue::find($issue_obj->id);
-$avg_pro_score = round($issue_obj->getAVGProScore());
-$avg_con_score = abs(round($issue_obj->getAVGConScore()));
-?>
-<a class="list-group-item row">
+<a class="list-group-item row" href="/issue/<?php echo $issue_obj->id; ?>">
     <div class="media col-md-3">
         <div>
             <figure>
                 <img class="media-object img-rounded img-responsive" src="<?php echo $issue_obj->icon; ?>">
             </figure>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->id; ?>">
+        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->icon; ?>">
             前往議題專頁
         </button>
     </div>
@@ -20,21 +15,6 @@ $avg_con_score = abs(round($issue_obj->getAVGConScore()));
         </h3>
         <p class="list-group-item-text margin-top-3">
             <div class="row">
-                <h4>大家對此議題的平均評分</h4>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo $avg_pro_score; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $avg_pro_score; ?>%">
-                        <span class="sr-only"><?php echo $avg_pro_score; ?></span>
-                    </div>
-                    <span class="progress-type">平均贊成分數</span>
-                    <span class="progress-completed"><?php echo $avg_pro_score; ?></span>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?php echo $avg_con_score; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $avg_con_score; ?>%">
-                        <span class="sr-only"><?php echo $avg_con_score; ?></span>
-                    </div>
-                    <span class="progress-type">平均反對分數</span>
-                    <span class="progress-completed"><?php echo $avg_con_score; ?></span>
-                </div>
                 <?php
 
                 if (Auth::check()) {

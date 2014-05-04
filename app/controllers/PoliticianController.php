@@ -36,6 +36,19 @@ class PoliticianController extends \BaseController {
         $intro_input    = $input['intro_input'];
         $district_input = $input['district_input'];
 
+        $politician_obj = DB::table('politicians')->where('name', $name_input)->first();
+
+        if (!empty($politician_obj)) {
+
+            $type = 'politician_exist';
+            $parameter = array("none"=>"none");
+            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+            $error_messanger->printErrorJSON();
+            unset($error_messanger);
+            return;
+
+        }
+
         // create news
         $politician_obj                 = new Politician;
         $politician_obj->name           = $name_input;
@@ -51,6 +64,37 @@ class PoliticianController extends \BaseController {
         $error_messanger->printErrorJSON();
         unset($error_messanger);
         return;
+
+    }
+
+    public function showPolitician($id) {
+
+        $input = Input::all();
+        $politician_obj = Politician::find($id);
+
+        return View::make(
+                        'politician-profile-page',
+                        array(
+                            'active_header' => 'politician-page',
+                            'active_tab' => 'politician-score',
+                            'politician_obj' => $politician_obj)
+                        );
+
+    }
+
+    public function showPoliticianNews($id) {
+
+        $input = Input::all();
+
+        $politician_obj = Politician::find($id);
+
+        return View::make(
+                        'politician-profile-news-page',
+                        array(
+                            'active_header' => 'politician-page',
+                            'active_tab' => 'politician-news',
+                            'politician_obj' => $politician_obj)
+                        );
 
     }
 
