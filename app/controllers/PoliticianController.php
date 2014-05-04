@@ -67,4 +67,35 @@ class PoliticianController extends \BaseController {
 
     }
 
+    public function showPolitician($id) {
+
+        $input = Input::all();
+        $politician_obj = Politician::find($id);
+
+        return View::make(
+                        'politician-profile-page',
+                        array(
+                            'active_header' => 'politician-page',
+                            'active_tab' => 'politician-score',
+                            'politician_obj' => $politician_obj)
+                        );
+
+    }
+
+    public function showPoliticianNews($id) {
+
+        $input = Input::all();
+
+        $politician_obj = Politician::find($id);
+
+        return View::make(
+                        'politician-profile-news-page',
+                        array(
+                            'active_header' => 'politician-page',
+                            'active_tab' => 'politician-news',
+                            'politician_obj' => $politician_obj)
+                        );
+
+    }
+
 }

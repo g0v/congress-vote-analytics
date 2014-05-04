@@ -63,4 +63,13 @@ class IssueController extends \BaseController {
 
     }
 
+    public function showIssue($id) {
+
+        $input = Input::all();
+        $issue_obj = Issue::find($id);
+
+        return View::make('issue-profile-page', array('active_header' => 'issue-page', 'issue_obj' => $issue_obj));
+
+    }
+
 }

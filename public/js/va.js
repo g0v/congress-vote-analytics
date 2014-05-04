@@ -83,4 +83,11 @@ $(document).ready(function() {
         });
     });
 
+    $(document.body).off('click', '.to-issue-profile-btn');
+    $(document.body).on('click', '.to-issue-profile-btn', function() {
+
+        window.location.href = $(this).attr('data-url');
+
+    });
+
 });

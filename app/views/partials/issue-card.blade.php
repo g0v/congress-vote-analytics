@@ -5,9 +5,14 @@ $avg_con_score = abs(round($issue_obj->getAVGConScore()));
 ?>
 <a class="list-group-item row">
     <div class="media col-md-3">
-        <figure class="pull-left">
-            <img class="media-object img-rounded img-responsive" src="<?php echo $issue_obj->icon; ?>">
-        </figure>
+        <div>
+            <figure>
+                <img class="media-object img-rounded img-responsive" src="<?php echo $issue_obj->icon; ?>">
+            </figure>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->id; ?>">
+            前往議題專頁
+        </button>
     </div>
     <div class="col-md-9">
         <h3 class="list-group-item-heading">

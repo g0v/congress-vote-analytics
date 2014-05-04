@@ -23,6 +23,8 @@ Route::get('/issue', 'IssueController@getIssuePage');
 
 Route::get('/issue/get-add-issue-form', 'IssueController@getAddIssueForm');
 
+Route::get('/issue/{id}', 'IssueController@showIssue');
+
 Route::post('/issue/add-issue', 'IssueController@addIssue');
 
 Route::get('/politician', 'PoliticianController@getPoliticianPage');
@@ -30,6 +32,10 @@ Route::get('/politician', 'PoliticianController@getPoliticianPage');
 Route::get('/politician/get-add-politician-form', 'PoliticianController@getAddPoliticianForm');
 
 Route::post('/politician/add-politician', 'PoliticianController@addPolitician');
+
+Route::get('/politician/{id}', 'PoliticianController@showPolitician');
+
+Route::get('/politician/{id}/news', 'PoliticianController@showPoliticianNews');
 
 Route::get('/news', 'NewsController@getNewsPage');
 
