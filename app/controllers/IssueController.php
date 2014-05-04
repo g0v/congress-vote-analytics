@@ -34,6 +34,19 @@ class IssueController extends \BaseController {
         $title_input     = $input['title_input'];
         $icon_input     = $input['icon_input'];
 
+        $issue_obj = DB::table('issues')->where('title', $title_input)->first();
+
+        if (!empty($issue_obj)) {
+
+            $type = 'issue_exist';
+            $parameter = array("none"=>"none");
+            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+            $error_messanger->printErrorJSON();
+            unset($error_messanger);
+            return;
+
+        }
+
         // create news
         $issue_obj                 = new Issue;
         $issue_obj->title          = $title_input;

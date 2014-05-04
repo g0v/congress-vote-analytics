@@ -36,6 +36,19 @@ class PoliticianController extends \BaseController {
         $intro_input    = $input['intro_input'];
         $district_input = $input['district_input'];
 
+        $politician_obj = DB::table('politicians')->where('name', $name_input)->first();
+
+        if (!empty($politician_obj)) {
+
+            $type = 'politician_exist';
+            $parameter = array("none"=>"none");
+            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+            $error_messanger->printErrorJSON();
+            unset($error_messanger);
+            return;
+
+        }
+
         // create news
         $politician_obj                 = new Politician;
         $politician_obj->name           = $name_input;

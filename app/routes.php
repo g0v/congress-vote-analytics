@@ -37,6 +37,10 @@ Route::get('/news/get-add-news-form', 'NewsController@getAddNewsForm');
 
 Route::post('/news/add-news', 'NewsController@addNews');
 
+Route::get('/news/get-tag-news-form', 'NewsController@getTagNewsForm');
+
+Route::post('/news/tag-news', 'NewsController@tagNews');
+
 Route::get('/district', 'HomeController@getDistrictPage');
 
 Route::get('/me/profile', 'MeController@getMeProfilePage');
@@ -46,3 +50,7 @@ Route::get('/me/issue-score', 'MeController@getMeIssueScorePage');
 Route::post('/me/update-profile', 'MeController@postUpdateProfile');
 
 Route::post('/me/update-issue-score', 'MeController@postUpdateIssueScore');
+
+Route::get('/api/search/issue', 'APIController@searchIssue');
+
+Route::get('/api/search/politician', 'APIController@searchPolitician');

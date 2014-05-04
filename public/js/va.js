@@ -62,4 +62,25 @@ $(document).ready(function() {
 
     });
 
+    $(document.body).off('click', '.tag-news-btn');
+    $(document.body).on('click', '.tag-news-btn', function() {
+        $.ajax({
+            url: '/news/get-tag-news-form',
+            type: "GET",
+            data: {
+                news_id: $(this).attr('data-news-id')
+            },
+            dataType: "html",
+            beforeSend: function( xhr ) {
+                $('#system-message').html('處理中...');
+                $('#system-message').show();
+            },
+            success: function( html_block ) {
+                $('#system-message').html('完成');
+                $('#system-message').fadeOut();
+                $('#modal-block').html(html_block);
+            }
+        });
+    });
+
 });

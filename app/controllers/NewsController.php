@@ -103,5 +103,66 @@ class NewsController extends \BaseController {
 
 	}
 
+    public function getTagNewsForm() {
+
+        $input = Input::all();
+
+        $news_id = $input['news_id'];
+
+        return View::make('modal.tag-news-form', array('news_id' => $news_id));
+    }
+
+    public function tagNews() {
+
+        if (!Auth::check()) {
+
+            $type = 'unknow_error';
+            $parameter = array("none"=>"none");
+            $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+            $error_messanger->printErrorJSON();
+            unset($error_messanger);
+            return;
+
+        }
+
+        $login_user_obj = Auth::user();
+
+        $input = Input::all();
+
+        $news_id                = $input['tag_news_id'];
+        $news_issue_record      = $input['news_issue_record'];
+        $news_politician_record = $input['news_politician_record'];
+
+        DB::delete('DELETE FROM news_issue_records WHERE news_id = ?', array($news_id));
+        DB::delete('DELETE FROM news_politician_records WHERE news_id = ?', array($news_id));
+
+        $news_issue_record_array        = explode(',', $news_issue_record);
+        $news_politician_record_array   = explode(',', $news_politician_record);
+
+        foreach ($news_issue_record_array as $key=>$issue_id) {
+            $news_issue_record_obj              = new NewsIssueRecord;
+            $news_issue_record_obj->news_id     = $news_id;
+            $news_issue_record_obj->issue_id    = $issue_id;
+            $news_issue_record_obj->creator_id  = $login_user_obj->id;
+            $news_issue_record_obj->save();
+        }
+
+        foreach ($news_politician_record_array as $key=>$politician_id) {
+            $news_politician_record_obj                 = new NewsPoliticianRecord;
+            $news_politician_record_obj->news_id        = $news_id;
+            $news_politician_record_obj->politician_id  = $politician_id;
+            $news_politician_record_obj->creator_id     = $login_user_obj->id;
+            $news_politician_record_obj->save();
+        }
+
+        $type = 'success';
+        $parameter = array("none"=>"none");
+        $error_messanger = new FukuPHPErrorMessenger($type, $parameter);
+        $error_messanger->printErrorJSON();
+        unset($error_messanger);
+        return;
+
+    }
+
 
 }

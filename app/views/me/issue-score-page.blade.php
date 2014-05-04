@@ -16,12 +16,12 @@
                                 ->orderBy('issues.id', 'desc')
                                 ->paginate(4);
 
-            foreach ($issue_list as $my_issue_obj) {
+            foreach ($issue_list as $issue_obj) {
 
                 echo View::make(
                             'partials.my-issue-card',
                             array(
-                                'issue_obj' => $my_issue_obj
+                                'issue_obj' => $issue_obj
                             )
                         );
             }
