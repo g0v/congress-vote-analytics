@@ -8,12 +8,10 @@ $avg_con_score = abs(round($politician_obj->getAVGConScore($issue_obj->id)));
     <div class="media col-md-3">
         <div>
             <figure>
-                <img class="media-object img-rounded img-responsive" src="<?php echo $issue_obj->icon; ?>">
+                <img class="media-object img-rounded img-responsive" src="<?php echo $politician_obj->icon; ?>">
             </figure>
+            <h4><?php echo $politician_obj->name; ?></h4>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->id; ?>">
-            前往議題專頁
-        </button>
     </div>
     <div class="col-md-9">
         <h3 class="list-group-item-heading">
@@ -65,7 +63,7 @@ $avg_con_score = abs(round($politician_obj->getAVGConScore($issue_obj->id)));
                                 <input type="hidden" name="issue_id" value="<?php echo $issue_obj->id ?>">
                                 <input type="hidden" name="politician_id" value="<?php echo $politician_obj->id ?>">
                                 <input  style="width: 100%;"
-                                        id="politician-issue<?php echo $issue_obj->id ?>-score"
+                                        id="politician-issue<?php echo $politician_obj->id ?>-score"
                                         name="my_politician_issue_score"
                                         data-slider-id='glodSlider'
                                         type="text"
@@ -74,10 +72,10 @@ $avg_con_score = abs(round($politician_obj->getAVGConScore($issue_obj->id)));
                                         data-slider-step="1"
                                         data-slider-value="<?php echo $my_politician_issue_score; ?>" />
                                 <script>
-                                $("#politician-issue<?php echo $issue_obj->id ?>-score").slider({
+                                $("#politician-issue<?php echo $politician_obj->id ?>-score").slider({
                                     tooltip: 'always'
                                 }).on('slide', function(slideEvt){
-                                    $("#politician-issue<?php echo $issue_obj->id ?>-score").attr('data-slider-value', slideEvt.value);
+                                    $("#politician-issue<?php echo $politician_obj->id ?>-score").attr('data-slider-value', slideEvt.value);
                                 });
 
                                 </script>

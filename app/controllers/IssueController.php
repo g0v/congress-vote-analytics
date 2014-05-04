@@ -68,7 +68,28 @@ class IssueController extends \BaseController {
         $input = Input::all();
         $issue_obj = Issue::find($id);
 
-        return View::make('issue-profile-page', array('active_header' => 'issue-page', 'issue_obj' => $issue_obj));
+        return View::make(
+                        'issue-profile-page',
+                        array(
+                            'active_header' => 'issue-page',
+                            'active_tab' => 'issue-politician-score',
+                            'issue_obj' => $issue_obj)
+                        );
+
+    }
+
+    public function showIssueNews($id) {
+
+        $input = Input::all();
+        $issue_obj = Issue::find($id);
+
+        return View::make(
+                        'issue-profile-news-page',
+                        array(
+                            'active_header' => 'issue-page',
+                            'active_tab' => 'issue-news',
+                            'issue_obj' => $issue_obj)
+                        );
 
     }
 

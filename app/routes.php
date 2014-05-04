@@ -25,6 +25,8 @@ Route::get('/issue/get-add-issue-form', 'IssueController@getAddIssueForm');
 
 Route::get('/issue/{id}', 'IssueController@showIssue');
 
+Route::get('/issue/{id}/news', 'IssueController@showIssueNews');
+
 Route::post('/issue/add-issue', 'IssueController@addIssue');
 
 Route::get('/politician', 'PoliticianController@getPoliticianPage');

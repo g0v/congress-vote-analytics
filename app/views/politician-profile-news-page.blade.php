@@ -27,7 +27,6 @@
 
 
             ?>
-            <h2>新聞列表</h2>
             <?php
 
             $news_list = DB::table('news')
@@ -40,7 +39,7 @@
             if ($news_list->count()>0) {
 
                 ?>
-                <div class="flex-container margin-bottom-3">
+                <div class="flex-container margin-bottom-3 margin-top-3">
                 <?php
                 foreach ($news_list as $news_obj) {
 
