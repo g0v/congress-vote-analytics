@@ -1,6 +1,6 @@
 # congress-vote-analytics 選票成份分析網站
 
-## 網站網址：[http://congress-vote-analytics.herokuapp.com/](http://congress-vote-analytics.herokuapp.com/)
+## [http://congress-vote-analytics.herokuapp.com/](http://congress-vote-analytics.herokuapp.com/)
 
 如何加入開發
 ==========
