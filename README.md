@@ -27,6 +27,16 @@
 
 內容待捕
 
+看起來像這樣
+==============
+
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-1.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-2.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-3.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-4.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-5.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-6.png)
+
 ## License
 
 MIT http://g0v.mit-license.org
