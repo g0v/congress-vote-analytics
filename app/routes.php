@@ -42,3 +42,5 @@ Route::get('/district', 'HomeController@getDistrictPage');
 Route::get('/me/profile', 'MeController@getMeProfilePage');
 
 Route::post('/me/update-profile', 'MeController@postUpdateProfile');
+
+Route::post('/me/update-issue-score', 'MeController@postUpdateIssueScore');
