@@ -1,25 +1,42 @@
-## congress-vote-analytics 選票成份分析網站
+# congress-vote-analytics 選票成份分析網站
 
-## Deploy to heroku
+## [http://congress-vote-analytics.herokuapp.com/](http://congress-vote-analytics.herokuapp.com/)
 
-## Laravel PHP Framework
+如何加入開發
+==========
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.png)](https://packagist.org/packages/laravel/framework)
+## 法 1：建立 local 端環境以加入開發
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+內容待捕
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+## 法 2：建立 Heroku App 以加入開發
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+內容待捕
 
-## Official Documentation
+## 法 3：直接 push 到 Dev 測試環境以加入開發
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+內容待捕
 
-### Contributing To Laravel
+如何部署至測試環境
+==========
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+內容待捕
 
-### License
+如何部署至正式環境
+==========
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+內容待捕
+
+看起來像這樣
+==============
+
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-1.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-2.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-3.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-4.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-5.png)
+![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-6.png)
+
+## License
+
+MIT http://g0v.mit-license.org
