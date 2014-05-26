@@ -102,7 +102,7 @@ $ git config remote.heroku.url "git@heroku.com:dev-congress-vote-analytics.git"
 $ git push -f heroku dev:master
 ```
 
-或者在 *uix 環境下您也可以使用 repo 裡的 script 來進行部署，指令如下：
+或者在 *nix 環境下您也可以使用 repo 裡的 script 來進行部署，指令如下：
 
 ```
 $ sh /path/to/script/deploy-to-dev.sh
@@ -121,7 +121,7 @@ $ git config remote.heroku.url "git@heroku.com:congress-vote-analytics.git"
 $ git push heroku master
 ```
 
-或者在 *uix 環境下您也可以使用 repo 裡的 script 來進行部署，指令如下：
+或者在 *nix 環境下您也可以使用 repo 裡的 script 來進行部署，指令如下：
 
 ```
 $ sh /path/to/script/deploy-to-master.sh
