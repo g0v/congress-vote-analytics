@@ -7,7 +7,19 @@
 
 ## 法 1：建立 local 端環境以加入開發
 
-內容待補
+#### 步驟
+- 執行終端指令 `git clone <本專案git位址>` 本專案到指定資料夾
+- 將網路伺服器設定根目錄到本專案的public資料夾，或是指定到本專案根目錄的server資料夾。_（註1）_
+- 執行終端指令 `composer update` ，更新vendor。_（註1）_
+- 編輯 `app/config/app.php` ，將 `url` 參數修改為本專案的根目錄，並且更新 `key` 參數的值。_（註1、註2）_
+- 編輯 `app/config/database.php` ，修改資料庫連線參數。_（註1）_
+- 執行終端指令 `php artisan migrate` ，建立資料表。
+- 連線到網站，測試是否正常，看會不會出現系統錯誤訊息，若有，請檢查是否為伺服器環境的問題。若認為是程式問題，請到本專案的頁面提報Issue。
+- 加入開發吧！
+
+#### 備註
+1. 詳細請參照 [Laravel Framework][1] 的說明文件。
+2. 因為本專案目前多數路徑是絕對路徑，所以請將本專案建立在網域根目錄，例如localhost，或自行設立virtual host。
 
 ## 法 2：建立 Heroku App 以加入開發
 
@@ -141,6 +153,7 @@ $ sh /path/to/script/deploy-to-master.sh
 
 ## Developer
 Bater bater@va.twbbs.org
+Ruoshi fntsrlike [at] gmail [dot] com
 
 ## License
 
