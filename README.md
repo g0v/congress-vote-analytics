@@ -139,6 +139,9 @@ $ sh /path/to/script/deploy-to-master.sh
 ![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-5.png)
 ![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-6.png)
 
+## Developer
+Bater bater@va.twbbs.org
+
 ## License
 
 MIT http://g0v.mit-license.org
