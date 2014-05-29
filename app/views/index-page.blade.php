@@ -91,4 +91,7 @@
             ?>
         </div>
     </section>
+    <section>
+        <h2>新區塊</h2>
+    </section>
 @stop
