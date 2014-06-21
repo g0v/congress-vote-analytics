@@ -9,6 +9,7 @@
     <section>
         <h2>你的議題立場</h2>
         <section class="issue-list-block row">          
+
             <div class="list-group">
                 <?php
 

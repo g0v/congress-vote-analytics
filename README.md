@@ -152,7 +152,7 @@ $ sh /path/to/script/deploy-to-master.sh
 ![圖片](https://raw.github.com/g0v/congress-vote-analytics/master/public/image/screenshot-6.png)
 
 ## Developer
-- Bater bater@va.twbbs.org
+- Bater baterme [at] gmail [dot] com
 - Ruoshi fntsrlike [at] gmail [dot] com
 
 ## License
