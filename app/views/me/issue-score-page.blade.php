@@ -14,15 +14,15 @@
                 <?php
 
                 $issue_list = DB::table('issues')
-                                    ->join('user_issue_score_records', 'issues.id', '=', 'user_issue_score_records.issue_id')
-                                    ->where('user_issue_score_records.user_id', $login_user_obj->id)
-                                    ->orderBy('issues.id', 'desc')
-                                    ->paginate(4);
+                                    //->join('user_issue_score_records', 'issues.id', '=', 'user_issue_score_records.issue_id')
+                                    //->where('user_issue_score_records.user_id', $login_user_obj->id)
+                                    ->orderBy('issues.id', 'desc');
+                                    //->paginate(4);
 
                 foreach ($issue_list as $issue_obj) {
 
                     echo View::make(
-                                'partials.my-issue-card',
+                                'partials.issue-card',
                                 array(
                                     'issue_obj' => $issue_obj
                                 )
