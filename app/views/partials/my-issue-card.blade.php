@@ -5,7 +5,7 @@
                 <img class="media-object img-rounded img-responsive" src="<?php echo $issue_obj->icon; ?>">
             </figure>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->icon; ?>">
+        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->id; ?>">
             前往議題專頁
         </button>
     </div>

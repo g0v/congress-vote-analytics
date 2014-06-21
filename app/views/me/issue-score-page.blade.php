@@ -6,31 +6,34 @@
 
         $login_user_obj = Auth::user();
     ?>
-    <section class="issue-list-block row">
-        <div class="list-group">
-            <?php
+    <section>
+        <h2>個人議題表態</h2>
+        <section class="issue-list-block row">
+            <div class="list-group">
+                <?php
 
-            $issue_list = DB::table('issues')
-                                ->join('user_issue_score_records', 'issues.id', '=', 'user_issue_score_records.issue_id')
-                                ->where('user_issue_score_records.user_id', $login_user_obj->id)
-                                ->orderBy('issues.id', 'desc')
-                                ->paginate(4);
+                $issue_list = DB::table('issues')
+                                    ->join('user_issue_score_records', 'issues.id', '=', 'user_issue_score_records.issue_id')
+                                    ->where('user_issue_score_records.user_id', $login_user_obj->id)
+                                    ->orderBy('issues.id', 'desc')
+                                    ->paginate(4);
 
-            foreach ($issue_list as $issue_obj) {
+                foreach ($issue_list as $issue_obj) {
 
-                echo View::make(
-                            'partials.my-issue-card',
-                            array(
-                                'issue_obj' => $issue_obj
-                            )
-                        );
-            }
+                    echo View::make(
+                                'partials.my-issue-card',
+                                array(
+                                    'issue_obj' => $issue_obj
+                                )
+                            );
+                }
 
-            ?>
-        </div>
-        <div class="text-center">
-            <?php echo $issue_list->links(); ?>
-        </div>
+                ?>
+            </div>
+            <div class="text-center">
+                <?php echo $issue_list->links(); ?>
+            </div>
+        </section>
     </section>
     <?php
     } else {
