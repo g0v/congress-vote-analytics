@@ -12,10 +12,10 @@ class UpdateUsers extends Migration {
 	 */
 	public function up()
 	{
-		
+
 		Schema::table('users', function($table)
 		{
-    		
+
     		$table->string('intro')->after('name');
 	        $table->string('avatar_url')->after('name');
 
