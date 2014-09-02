@@ -23,10 +23,8 @@
 
                     foreach ($issue_list as $issue_obj) {
 
-                        //print_r($issue_obj);
-
                         echo View::make(
-                                    'partials.issue-card',
+                                    'partials.my-issue-card',
                                     array(
                                         'issue_obj' => $issue_obj
                                     )

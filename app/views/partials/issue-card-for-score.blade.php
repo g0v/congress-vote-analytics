@@ -1,7 +1,9 @@
 <?php
+
 $issue_obj = Issue::find($issue_obj->id);
-$avg_pro_score = round($issue_obj->getAVGProScore());
-$avg_con_score = abs(round($issue_obj->getAVGConScore()));
+$avg_pro_score = 1;
+$avg_con_score = 1;
+
 ?>
 <a class="list-group-item row">
     <div class="media col-md-3">
