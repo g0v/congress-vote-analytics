@@ -23,6 +23,9 @@
 
                     foreach ($issue_list as $issue_obj) {
 
+                        var_dump($issue_obj);
+                        echo '<br/>';
+
                         echo View::make(
                                     'partials.my-issue-card',
                                     array(
