@@ -21,15 +21,12 @@
 
                 if (!empty($issue_list)) {
 
-                    foreach ($issue_list as $issue_obj) {
-
-                        var_dump($issue_obj);
-                        echo '<br/>';
+                    foreach ($issue_list as $issue_list_data) {
 
                         echo View::make(
                                     'partials.my-issue-card',
                                     array(
-                                        'issue_obj' => $issue_obj
+                                        'issue_list_data' => $issue_list_data
                                     )
                                 );
                     }

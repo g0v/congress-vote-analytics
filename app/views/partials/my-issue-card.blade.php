@@ -1,17 +1,17 @@
-<a class="list-group-item row" href="/issue/<?php echo $issue_obj->id; ?>">
+<a class="list-group-item row" href="/issue/<?php echo $issue_list_data->issue_id; ?>">
     <div class="media col-md-3">
         <div>
             <figure>
-                <img class="media-object img-rounded img-responsive" src="<?php echo $issue_obj->icon; ?>">
+                <img class="media-object img-rounded img-responsive" src="<?php echo $issue_list_data->icon; ?>">
             </figure>
         </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_obj->id; ?>">
+        <button type="button" class="btn btn-primary btn-lg btn-block to-issue-profile-btn margin-top-3" data-url="/issue/<?php echo $issue_list_data->issue_id; ?>">
             前往議題專頁
         </button>
     </div>
     <div class="col-md-9">
         <h3 class="list-group-item-heading">
-            <?php echo $issue_obj->title; ?>
+            <?php echo $issue_list_data->title; ?>
         </h3>
         <p class="list-group-item-text margin-top-3">
             <div class="row">
@@ -23,7 +23,7 @@
 
                     $user_issue_score_record_obj = DB::table('user_issue_score_records')
                                                         ->where('user_id', $login_user_obj->id)
-                                                        ->where('issue_id', $issue_obj->id)
+                                                        ->where('issue_id', $issue_list_data->issue_id)
                                                         ->first();
                     $my_issue_score = 0;
                     if (!empty($user_issue_score_record_obj)) {
@@ -40,9 +40,9 @@
                                 評分
                             </label>
                             <div class="col-sm-10">
-                                <input type="hidden" name="issue_id" value="<?php echo $issue_obj->id ?>">
+                                <input type="hidden" name="issue_id" value="<?php echo $issue_list_data->issue_id ?>">
                                 <input  style="width: 100%;"
-                                        id="my-issue<?php echo $issue_obj->id ?>-score"
+                                        id="my-issue<?php echo $issue_list_data->issue_id ?>-score"
                                         name="my_issue_score"
                                         data-slider-id='glodSlider'
                                         type="text"
@@ -51,10 +51,10 @@
                                         data-slider-step="1"
                                         data-slider-value="<?php echo $my_issue_score; ?>" />
                                 <script>
-                                $("#my-issue<?php echo $issue_obj->id ?>-score").slider({
+                                $("#my-issue<?php echo $issue_list_data->issue_id ?>-score").slider({
                                     tooltip: 'always'
                                 }).on('slide', function(slideEvt){
-                                    $("#my-issue<?php echo $issue_obj->id ?>-score").attr('data-slider-value', slideEvt.value);
+                                    $("#my-issue<?php echo $issue_list_data->issue_id ?>-score").attr('data-slider-value', slideEvt.value);
                                 });
 
                                 </script>
