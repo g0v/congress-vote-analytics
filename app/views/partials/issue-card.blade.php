@@ -1,17 +1,7 @@
 <?php
-var_dump($issue_obj);
-echo '<br/>';
-echo $issue_obj->id;
-echo '<br/>';
-$issue = Issue::find($issue_obj->id);
-var_dump($issue);
-echo '<br/>';
-echo $issue->getAVGProScore();
-echo '<br/>';
-$avg_pro_score = 1;
-$avg_con_score = 1;
-//$avg_pro_score = round($issue->getAVGProScore());
-//$avg_con_score = abs(round($issue->getAVGConScore()));
+$issue_obj = Issue::find($issue_obj->id);
+$avg_pro_score = round(Issue::staticAVGProScore($issue_obj->id));
+$avg_con_score = abs(round(Issue::getAVGConScore($issue_obj->id)));
 ?>
 <a class="list-group-item row">
     <div class="media col-md-3">
