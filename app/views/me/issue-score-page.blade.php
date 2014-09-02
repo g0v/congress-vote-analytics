@@ -8,16 +8,16 @@
     ?>
     <section>
         <h2>你的議題立場</h2>
-        <section class="issue-list-block row">          
+        <section class="issue-list-block row">
 
             <div class="list-group">
                 <?php
 
                 $issue_list = DB::table('issues')
-                                    //->join('user_issue_score_records', 'issues.id', '=', 'user_issue_score_records.issue_id')
-                                    //->where('user_issue_score_records.user_id', $login_user_obj->id)
+                                    ->join('user_issue_score_records', 'issues.id', '=', 'user_issue_score_records.issue_id')
+                                    ->where('user_issue_score_records.user_id', $login_user_obj->id)
                                     ->orderBy('issues.id', 'desc');
-                                    //->paginate(4);
+                                    ->paginate(4);
 
                 foreach ($issue_list as $issue_obj) {
 
