@@ -1,9 +1,22 @@
 <?php
 $issue_obj = Issue::find($issue_obj->id);
-$avg_pro_score = Issue::staticAVGProScore($issue_obj->id);
-$avg_con_score = Issue::staticAVGConScore($issue_obj->id);
-$avg_pro_score = round($avg_pro_score);
-$avg_con_score = abs(round($avg_con_score));
+
+$results = DB::select('SELECT AVG(score) avg_score '.
+                              'FROM user_issue_score_records '.
+                              'WHERE issue_id=? AND score>0', array($issue_obj->id));
+$avg_pro_score = 0;
+foreach ($results as $results_data) {
+    $avg_pro_score = $results_data->avg_score;
+}
+
+$results = DB::select('SELECT AVG(score) avg_score '.
+                              'FROM user_issue_score_records '.
+                              'WHERE issue_id=? AND score<0', array($issue_obj->id));
+$avg_con_score = 0;
+foreach ($results as $results_data) {
+    $avg_con_score = $results_data->avg_score;
+}
+
 ?>
 <a class="list-group-item row">
     <div class="media col-md-3">
