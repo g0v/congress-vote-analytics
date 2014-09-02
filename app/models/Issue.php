@@ -37,7 +37,7 @@ class Issue extends Eloquent {
 
     }
 
-    public function staticAVGProScore($issue_id) {
+    public static function staticAVGProScore($issue_id) {
 
         $results = DB::select('SELECT AVG(score) avg_score '.
                               'FROM user_issue_score_records '.
@@ -54,7 +54,7 @@ class Issue extends Eloquent {
 
     }
 
-    public function staticAVGConScore($issue_id) {
+    public static function staticAVGConScore($issue_id) {
 
         $results = DB::select('SELECT AVG(score) avg_score '.
                               'FROM user_issue_score_records '.
