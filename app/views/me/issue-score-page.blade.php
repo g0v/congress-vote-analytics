@@ -25,12 +25,12 @@
 
                         print_r($issue_obj);
 
-                        /*echo View::make(
+                        echo View::make(
                                     'partials.issue-card',
                                     array(
                                         'issue_obj' => $issue_obj
                                     )
-                                );*/
+                                );
                     }
 
                 }
