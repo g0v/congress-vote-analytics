@@ -1,6 +1,12 @@
 <?php
+var_dump($issue_obj);
+echo '<br/>';
+echo $issue_obj->id;
+echo '<br/>';
 $issue = Issue::find($issue_obj->id);
 var_dump($issue);
+echo '<br/>';
+echo $issue->getAVGProScore();
 echo '<br/>';
 $avg_pro_score = 1;
 $avg_con_score = 1;
